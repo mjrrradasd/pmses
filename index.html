@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정신과 약 부작용 척도 (Psychiatric Medication Side Effects Scale, PMSES)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            color: gray;
+            font-size: 1em;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        #community-link {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        #community-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>정신과 약 부작용 척도 (Psychiatric Medication Side Effects Scale, PMSES)</h1>
+        <h2>소울루션 척도</h2>
+        <form id="sideEffectForm">
+            <div class="form-group">
+                <label for="headache">두통</label>
+                <select id="headache" name="headache">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nausea">메스꺼움</label>
+                <select id="nausea" name="nausea">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dizziness">어지러움</label>
+                <select id="dizziness" name="dizziness">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="anxiety">불안감</label>
+                <select id="anxiety" name="anxiety">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="depression">우울감</label>
+                <select id="depression" name="depression">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="insomnia">불면증</label>
+                <select id="insomnia" name="insomnia">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="work_difficulty">직장/학교 생활의 어려움</label>
+                <select id="work_difficulty" name="work_difficulty">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="relationship_problems">대인 관계 문제</label>
+                <select id="relationship_problems" name="relationship_problems">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="activity_restriction">일상 활동의 제한</label>
+                <select id="activity_restriction" name="activity_restriction">
+                    <option value="1">전혀 없다</option>
+                    <option value="2">가끔 있다</option>
+                    <option value="3">자주 있다</option>
+                    <option value="4">항상 있다</option>
+                </select>
+            </div>
+            <button type="submit">제출</button>
+        </form>
+        <div id="result"></div>
+        <a id="community-link" href="https://open.kakao.com/o/gh8aF0wg" target="_blank" style="display:none;">나와 같은 고통을 겪는 사람들과 소통하기</a>
+    </div>
+    <script>
+        document.getElementById('sideEffectForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            let totalScore = 0;
+            formData.forEach((value) => {
+                totalScore += parseInt(value);
+            });
+
+            let resultText = '제출되었습니다. 감사합니다!\n\n총점: ' + totalScore + '\n';
+            if (totalScore >= 18) {
+                resultText += '확실한 부작용이 있습니다.\n';
+            } else {
+                resultText += '부작용이 경미하거나 없습니다.\n';
+            }
+
+            document.getElementById('result').innerText = resultText;
+            document.getElementById('community-link').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
